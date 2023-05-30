@@ -1,7 +1,7 @@
 {
   "name": "gerrit4vscode",
   "displayName": "Gerrit For Visual Studio Code",
-  "description": "在VSCode中直接提交代码到Gerrit和从Gerrit同步代码",
+  "description": "在VSCode中直接提交代码到Gerrit和变基拉取代码",
   "version": "0.0.2",
   "publisher": "adinlead",
   "engines": {
