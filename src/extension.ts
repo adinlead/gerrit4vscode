@@ -83,7 +83,8 @@ export function activate(context: vscode.ExtensionContext) {
   //向gerrit提交code
   const startPushCode = async () => {
     const repos: any = []
-    repos.push({ label: path.basename(repo._repository.root), branch: repo._repository.headLabel })
+    const repository = repo._repository || repo.repository
+    repos.push({ label: path.basename(repository.root), branch: repository.headLabel })
     const repoId: any = await showRepoQuickPick(repos)
     showBranchQuickPick(repoId.branch)
   }
