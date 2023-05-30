@@ -2,7 +2,7 @@
   "name": "gerrit4vscode",
   "displayName": "Gerrit For Visual Studio Code",
   "description": "在VSCode中直接提交代码到Gerrit和变基拉取代码",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "publisher": "adinlead",
   "engines": {
     "vscode": "^1.63.0"
@@ -72,7 +72,7 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "yarn run compile",
+    "vscode:prepublish": "npm run compile",
     "build": "vsce package",
     "publish": "vsce package && vsce publish",
     "compile": "tsc -p ./",
