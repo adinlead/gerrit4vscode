@@ -21,3 +21,8 @@ export function showBranchQuickPick(branch: string) {
   })
   quickPick.show()
 }
+
+export function pullCodeRebase(){
+  gitAPI('current','')
+  console.log('============')
+}

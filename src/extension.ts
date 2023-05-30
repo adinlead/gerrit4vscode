@@ -5,7 +5,7 @@ import commitType from './commit/commit-type'
 import commitInputType from './commit/commit-input'
 import { gitAPI } from './git/git-api'
 import { messageCombine, clearMessage, messageConfig } from './commit/commit-information'
-import { showBranchQuickPick, showRepoQuickPick } from './git/git-push'
+import { pullCodeRebase, showBranchQuickPick, showRepoQuickPick } from './git/git-push'
 
 
 export function activate(context: vscode.ExtensionContext) {
@@ -83,10 +83,15 @@ export function activate(context: vscode.ExtensionContext) {
   //向gerrit提交code
   const startPushCode = async () => {
     const repos: any = []
-    const repository = repo._repository || repo.repository
-    repos.push({ label: path.basename(repository.root), branch: repository.headLabel })
+    repo._repository = repo._repository || repo.repository
+    repos.push({ label: path.basename(repo._repository.root), branch: repo._repository.headLabel })
     const repoId: any = await showRepoQuickPick(repos)
     showBranchQuickPick(repoId.branch)
+  }
+
+  //向gerrit提交code
+  const startPullCode = async () => {
+    pullCodeRebase()
   }
 
 
@@ -114,7 +119,17 @@ export function activate(context: vscode.ExtensionContext) {
     startPushCode()
   })
 
-  context.subscriptions.push(editingCommit, pushCode)
+  const pullCode = vscode.commands.registerCommand('easy-gerrit.pullCode', (u) => {
+    if (u) {
+      // 如果开的空间，则有多个repo，则寻找当前的
+      repo = gitAPI('repos').find((repo: any) => {
+        return repo.rootUri.path === u._rootUri.path
+      })
+    }
+    startPullCode()
+  })
+
+  context.subscriptions.push(editingCommit, pushCode,pullCode)
 }
 
 // this method is called when your extension is deactivated
