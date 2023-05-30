@@ -1,0 +1,98 @@
+{
+  "name": "gerrit4vscode",
+  "displayName": "Gerrit For Visual Studio Code",
+  "description": "在VSCode中直接提交代码到Gerrit和从Gerrit同步代码",
+  "version": "0.0.2",
+  "publisher": "adinlead",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "icon": "images/logo.png",
+  "categories": [
+    "SCM Providers"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adinlead/gerrit4vscode"
+  },
+  "issue": {
+    "url": "https://github.com/adinlead/gerrit4vscode/issues"
+  },
+  "activationEvents": [
+    "onCommand:easy-gerrit.editingCommit",
+    "onCommand:easy-gerrit.pushCode",
+    "onCommand:easy-gerrit.pullCode"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "easy-gerrit.editingCommit",
+        "title": "editingCommit",
+        "icon": {
+					"dark": "/images/dark-editing-commit.svg",
+					"light": "/images/light-editing-commit.svg"
+				}
+      },
+      {
+        "command": "easy-gerrit.pushCode",
+        "title": "pushCode",
+        "icon": {
+					"dark": "/images/dark-push-code.svg",
+					"light": "/images/light-push-code.svg"
+				}
+      },
+      {
+        "command": "easy-gerrit.pullCode",
+        "title": "pullCode",
+        "icon": {
+					"dark": "/images/dark-pull-code.svg",
+					"light": "/images/light-pull-code.svg"
+				}
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "when": "scmProvider == git",
+          "command": "easy-gerrit.editingCommit",
+          "group": "navigation"
+        },
+        {
+          "when": "scmProvider == git",
+          "command": "easy-gerrit.pushCode",
+          "group": "navigation"
+        },
+        {
+          "when": "scmProvider == git",
+          "command": "easy-gerrit.pullCode",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "build": "vsce package",
+    "publish": "vsce package && vsce publish",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.63.0",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "@vscode/test-electron": "^1.6.2",
+    "eslint": "^8.5.0",
+    "glob": "^7.1.7",
+    "mocha": "^9.1.3",
+    "typescript": "^4.4.4",
+    "vsce": "^2.5.3"
+  }
+}
