@@ -1,8 +1,8 @@
-# easy-gerrit
+# gerrit4vscode
 
-"easy-gerrit" is a vscode plug-in designed to solve the problem of using gerrit in vsocde.
+"Gerrit4VSCode" is a vscode plug-in designed to solve the problem of using gerrit in vsocde.
 
-"easy-gerrit"是一个vscode插件，旨在解决在vsocde中使用gerrit的问题。
+"Gerrit4VSCode"是一个vscode插件，旨在解决在vsocde中使用gerrit的问题。
 
  Lets you optionally push code to gerrit in vscode's scm without having to switch to a terminal, and has a well-defined commit category to make it easier to complete reviews.
 
@@ -10,7 +10,7 @@
 
 ## Usage
 
-插件🔍安装：easy-gerrit
+插件🔍安装：Gerrit4VSCode
 
 
 # **🎉Enjoy!🎉**

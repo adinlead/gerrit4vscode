@@ -19,15 +19,15 @@
     "url": "https://github.com/adinlead/gerrit4vscode/issues"
   },
   "activationEvents": [
-    "onCommand:easy-gerrit.editingCommit",
-    "onCommand:easy-gerrit.pushCode",
-    "onCommand:easy-gerrit.pullCode"
+    "onCommand:gerrit4vscode.editingCommit",
+    "onCommand:gerrit4vscode.pushCode",
+    "onCommand:gerrit4vscode.pullCode"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "easy-gerrit.editingCommit",
+        "command": "gerrit4vscode.editingCommit",
         "title": "editingCommit",
         "icon": {
 					"dark": "/images/dark-editing-commit.svg",
@@ -35,7 +35,7 @@
 				}
       },
       {
-        "command": "easy-gerrit.pushCode",
+        "command": "gerrit4vscode.pushCode",
         "title": "pushCode",
         "icon": {
 					"dark": "/images/dark-push-code.svg",
@@ -43,7 +43,7 @@
 				}
       },
       {
-        "command": "easy-gerrit.pullCode",
+        "command": "gerrit4vscode.pullCode",
         "title": "pullCode",
         "icon": {
 					"dark": "/images/dark-pull-code.svg",
@@ -55,17 +55,17 @@
       "scm/title": [
         {
           "when": "scmProvider == git",
-          "command": "easy-gerrit.editingCommit",
+          "command": "gerrit4vscode.editingCommit",
           "group": "navigation"
         },
         {
           "when": "scmProvider == git",
-          "command": "easy-gerrit.pushCode",
+          "command": "gerrit4vscode.pushCode",
           "group": "navigation"
         },
         {
           "when": "scmProvider == git",
-          "command": "easy-gerrit.pullCode",
+          "command": "gerrit4vscode.pullCode",
           "group": "navigation"
         }
       ]

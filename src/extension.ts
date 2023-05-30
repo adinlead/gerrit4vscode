@@ -96,7 +96,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
   //提交commit
-  const editingCommit = vscode.commands.registerCommand('easy-gerrit.editingCommit', (u) => {
+  const editingCommit = vscode.commands.registerCommand('gerrit4vscode.editingCommit', (u) => {
     if (u) {
       // 如果开的空间，则有多个repo，则寻找当前的
       repo = gitAPI('repos').find((repo: any) => {
@@ -109,7 +109,7 @@ export function activate(context: vscode.ExtensionContext) {
   })
 
   // 提交code
-  const pushCode = vscode.commands.registerCommand('easy-gerrit.pushCode', (u) => {
+  const pushCode = vscode.commands.registerCommand('gerrit4vscode.pushCode', (u) => {
     if (u) {
       // 如果开的空间，则有多个repo，则寻找当前的
       repo = gitAPI('repos').find((repo: any) => {
@@ -119,7 +119,7 @@ export function activate(context: vscode.ExtensionContext) {
     startPushCode()
   })
 
-  const pullCode = vscode.commands.registerCommand('easy-gerrit.pullCode', (u) => {
+  const pullCode = vscode.commands.registerCommand('gerrit4vscode.pullCode', (u) => {
     if (u) {
       // 如果开的空间，则有多个repo，则寻找当前的
       repo = gitAPI('repos').find((repo: any) => {
